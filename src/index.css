@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: #f6f9ff;
+  --color-on-background: #151c22;
+  
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #eef4fd;
+  --color-surface-container: #e8eef7;
+  --color-surface-container-high: #e2e9f1;
+  --color-surface-container-highest: #dce3ec;
+  
+  --color-on-surface: #151c22;
+  --color-on-surface-variant: #444749;
+  
+  --color-primary: #5c5f60;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #f8f9fa;
+  
+  --color-secondary: #00658d;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #3dbeff;
+  --color-on-secondary-container: #004a69;
+  
+  --color-tertiary: #316a42;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #e8ffe8;
+  --color-on-tertiary-container: #457e54;
+
+  --radius-lg: 1.5rem;
+  --radius-xl: 2rem;
+  --radius-2xl: 3rem;
+
+  --animate-float: float 3s ease-in-out infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-on-background font-sans antialiased;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply h-[56px] px-8 rounded-full bg-secondary text-on-secondary font-semibold text-sm hover:scale-105 active:scale-95 transition-all shadow-[0px_10px_30px_rgba(0,0,0,0.08)] flex items-center justify-center gap-2;
+  }
+  
+  .btn-outline {
+    @apply h-[56px] px-8 rounded-full bg-transparent border-2 border-secondary text-secondary font-semibold text-sm hover:bg-secondary/5 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2;
+  }
+
+  .card-elevated {
+    @apply bg-surface-container-lowest rounded-xl shadow-[0px_10px_30px_rgba(0,0,0,0.04)] hover:shadow-[0px_20px_40px_rgba(0,0,0,0.08)] transition-all duration-300 hover:scale-[1.02];
+  }
+
+  .glass-panel {
+    @apply bg-white/70 backdrop-blur-xl border-b border-surface-container-highest/50 shadow-[0px_10px_30px_rgba(0,0,0,0.04)];
+  }
+}
